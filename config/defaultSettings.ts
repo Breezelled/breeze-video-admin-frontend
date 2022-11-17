@@ -5,8 +5,8 @@ const Settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
 } = {
-  navTheme: 'dark',
-  primaryColor: '#d99168',
+  navTheme: 'light',
+  primaryColor: '#eb6d38',
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,
@@ -14,7 +14,7 @@ const Settings: LayoutSettings & {
   colorWeak: false,
   title: false,
   pwa: false,
-  logo: 'long_logo.svg',
+  logo: '/long_logo.svg',
   iconfontUrl: '',
 };
 

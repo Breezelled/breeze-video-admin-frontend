@@ -44,8 +44,8 @@ export default {
     res.send({
       success: true,
       data: {
-        name: 'Serati Ma',
-        avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+        name: '陈柏宇',
+        avatar: '/avatar.GIF',
         userid: '00000001',
         email: 'antdesign@alipay.com',
         signature: '海纳百川，有容乃大',
@@ -54,27 +54,27 @@ export default {
         tags: [
           {
             key: '0',
-            label: '很有想法的',
+            label: '恁🐮',
           },
           {
             key: '1',
-            label: '专注设计',
+            label: 'Java',
           },
           {
             key: '2',
-            label: '辣~',
+            label: 'Python',
           },
           {
             key: '3',
-            label: '大长腿',
+            label: 'React',
           },
           {
             key: '4',
-            label: '川妹子',
+            label: 'Sydney',
           },
           {
             key: '5',
-            label: '海纳百川',
+            label: 'Dota2',
           },
         ],
         notifyCount: 12,
