@@ -32,6 +32,11 @@ export type RadarData = {
   value: number;
 };
 
+export type revenueBudgetDataType = {
+  revenue: number;
+  budget: number;
+};
+
 export interface AnalysisData {
   visitData: DataItem[];
   visitData2: DataItem[];
@@ -43,4 +48,5 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
+  revenueBudgetData: revenueBudgetDataType[];
 }
