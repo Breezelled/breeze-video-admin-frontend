@@ -6,5 +6,5 @@ export async function fakeChartData(): Promise<{ data: AnalysisData }> {
 }
 
 export async function budgetRevenueData(): Promise<{ data: AnalysisData }> {
-  return request('/api/budget_revenue/budget_revenue');
+  return request('/api/budget_revenue/data');
 }

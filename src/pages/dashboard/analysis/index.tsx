@@ -21,7 +21,9 @@ import PageLoading from './components/PageLoading';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
 // import styles from './style.less';
-import BudgetGross from './components/BudgetGross';
+import BudgetRevenue from './components/BudgetRevenue';
+import TypeBudget from '@/pages/dashboard/analysis/components/TypeBudget';
+import TypeRevenue from '@/pages/dashboard/analysis/components/TypeRevenue';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
@@ -39,6 +41,7 @@ const Analysis: FC<AnalysisProps> = () => {
 
   // const { scatterData } = useRequest(g2plotTest)
   const { loading, data } = useRequest(budgetRevenueData);
+  // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
   console.log(data?.budgetRevenueData || []);
@@ -135,6 +138,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
+              <TypeBudget typeBudgetData={data?.typeBudgetData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -146,6 +150,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
+              <TypeRevenue typeRevenueData={data?.typeRevenueData || []} />
             </Suspense>
           </Col>
         </Row>
@@ -161,11 +166,7 @@ const Analysis: FC<AnalysisProps> = () => {
         </Suspense>
 
         <Suspense fallback={null}>
-          <BudgetGross
-            loading={loading}
-            // offlineData={data?.offlineData || []}
-            budgetRevenueData={data?.budgetRevenueData || []}
-          />
+          <BudgetRevenue loading={loading} budgetRevenueData={data?.budgetRevenueData || []} />
         </Suspense>
       </>
     </GridContent>

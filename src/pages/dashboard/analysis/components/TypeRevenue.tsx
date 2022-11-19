@@ -1,44 +1,33 @@
 // import React, { useState, useEffect } from 'react';
 // import ReactDOM from 'react-dom';
 // import request from "umi-request";
-import { Scatter } from '@ant-design/plots';
+import { Column } from '@ant-design/plots';
 // import type { DataItem } from '../data.d';
 import { Card } from 'antd';
 import styles from '../style.less';
 // import {OfflineDataType} from "../data.d";
 // import {Line} from "@ant-design/charts";
-import type { budgetRevenueDataType } from '../data.d';
+import type { typeRevenueDataType } from '../data.d';
 
-const BudgetGross = ({
-  loading,
-  budgetRevenueData,
-}: {
-  loading: boolean;
-  budgetRevenueData: budgetRevenueDataType[];
-}) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
+const BudgetRevenue = ({ typeRevenueData }: { typeRevenueData: typeRevenueDataType[] }) => (
+  <Card className={styles.offlineCard} bordered={false}>
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
-      <Scatter
+      <Column
         autoFit
         // height={400}
-        data={budgetRevenueData}
+        data={typeRevenueData}
         // responsive
-        xField="budget"
+        xField="type"
         yField="revenue"
         // seriesField="type"
-        interactions={[
-          {
-            type: 'slider',
-            cfg: {},
-          },
-        ]}
-        regressionLine={{
-          type: 'linear',
+        slider={{
+          start: 0,
+          end: 1,
         }}
         xAxis={{
           title: {
-            text: '电影预算（美元）',
+            text: '电影类型',
           },
         }}
         yAxis={{
@@ -47,8 +36,8 @@ const BudgetGross = ({
           },
         }}
         meta={{
-          budget: {
-            alias: '预算',
+          type: {
+            alias: '类型',
           },
           revenue: {
             alias: '票房',
@@ -64,5 +53,5 @@ const BudgetGross = ({
   </Card>
 );
 
-export default BudgetGross;
-// ReactDOM.render(<BudgetGross />, document.getElementById('container'));
+export default BudgetRevenue;
+// ReactDOM.render(<BudgetRevenue />, document.getElementById('container'));
