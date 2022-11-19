@@ -14,7 +14,7 @@ import type moment from 'moment';
 // import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
-import { g2plotTest } from './service';
+import { budgetRevenueData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
@@ -38,10 +38,10 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { loading, data } = useRequest(g2plotTest);
+  const { loading, data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
-  console.log(data?.revenueBudgetData || []);
+  console.log(data?.budgetRevenueData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -164,7 +164,7 @@ const Analysis: FC<AnalysisProps> = () => {
           <BudgetGross
             loading={loading}
             // offlineData={data?.offlineData || []}
-            revenueBudgetData={data?.revenueBudgetData || []}
+            budgetRevenueData={data?.budgetRevenueData || []}
           />
         </Suspense>
       </>

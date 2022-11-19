@@ -7,31 +7,26 @@ import { Card } from 'antd';
 import styles from '../style.less';
 // import {OfflineDataType} from "../data.d";
 // import {Line} from "@ant-design/charts";
-import { revenueBudgetDataType } from '../data.d';
+import type { budgetRevenueDataType } from '../data.d';
 
 const BudgetGross = ({
   loading,
-  revenueBudgetData,
+  budgetRevenueData,
 }: {
   loading: boolean;
-  revenueBudgetData: revenueBudgetDataType[];
+  budgetRevenueData: budgetRevenueDataType[];
 }) => (
   <Card loading={loading} className={styles.offlineCard} bordered={false}>
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Scatter
-        // forceFit
-        height={400}
-        data={revenueBudgetData}
+        autoFit
+        // height={400}
+        data={budgetRevenueData}
         // responsive
-        xField="revenue"
-        yField="budget"
+        xField="budget"
+        yField="revenue"
         // seriesField="type"
-        // regressionLine: {[
-        //   {
-        //     type: 'linear',
-        //   },
-        // ]}
         interactions={[
           {
             type: 'slider',
@@ -40,6 +35,24 @@ const BudgetGross = ({
         ]}
         regressionLine={{
           type: 'linear',
+        }}
+        xAxis={{
+          title: {
+            text: '电影预算（美元）',
+          },
+        }}
+        yAxis={{
+          title: {
+            text: '电影票房（美元）',
+          },
+        }}
+        meta={{
+          budget: {
+            alias: '预算',
+          },
+          revenue: {
+            alias: '票房',
+          },
         }}
 
         // legend={{

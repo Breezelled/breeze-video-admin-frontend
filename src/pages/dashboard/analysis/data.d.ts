@@ -32,9 +32,9 @@ export type RadarData = {
   value: number;
 };
 
-export type revenueBudgetDataType = {
-  revenue: number;
+export type budgetRevenueDataType = {
   budget: number;
+  revenue: number;
 };
 
 export interface AnalysisData {
@@ -48,5 +48,5 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
-  revenueBudgetData: revenueBudgetDataType[];
+  budgetRevenueData: budgetRevenueDataType[];
 }
