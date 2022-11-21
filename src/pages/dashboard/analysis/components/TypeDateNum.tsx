@@ -1,55 +1,63 @@
 // import React, { useState, useEffect } from 'react';
 // import ReactDOM from 'react-dom';
 // import request from "umi-request";
-import { Column } from '@ant-design/plots';
+import { Line } from '@ant-design/plots';
 // import type { DataItem } from '../data.d';
 import { Card } from 'antd';
 import styles from '../style.less';
 // import {OfflineDataType} from "../data.d";
 // import {Line} from "@ant-design/charts";
-import type { typeRevenueDataType } from '../data.d';
+import type { typeDateNumDataType } from '../data.d';
 
-const BudgetRevenue = ({
+const TypeDateNum = ({
   loading,
-  typeRevenueData,
+  typeDateNumData,
 }: {
   loading: boolean;
-  typeRevenueData: typeRevenueDataType[];
+  typeDateNumData: typeDateNumDataType[];
 }) => (
   <Card loading={loading} className={styles.offlineCard} bordered={false}>
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
-      <Column
+      <Line
         autoFit
         // height={400}
-        data={typeRevenueData}
+        data={typeDateNumData}
         // responsive
-        xField="type"
-        yField="revenue"
-        // seriesField="type"
+        xField="release_date"
+        yField="count"
+        seriesField="type"
         slider={{
           start: 0,
           end: 1,
         }}
         xAxis={{
           title: {
-            text: '电影类型',
+            text: '电影年份',
           },
         }}
         yAxis={{
           title: {
-            text: '电影平均票房（美元）',
+            text: '电影数量',
           },
         }}
         meta={{
           type: {
             alias: '类型',
           },
-          revenue: {
-            alias: '票房',
+          count: {
+            alias: '电影数量',
+          },
+          release_date: {
+            alias: '电影年份',
           },
         }}
-
+        smooth={true}
+        animation={{
+          appear: {
+            duration: 3000,
+          },
+        }}
         // legend={{
         //   position: 'top-center',
         // }}
@@ -59,5 +67,5 @@ const BudgetRevenue = ({
   </Card>
 );
 
-export default BudgetRevenue;
+export default TypeDateNum;
 // ReactDOM.render(<BudgetRevenue />, document.getElementById('container'));

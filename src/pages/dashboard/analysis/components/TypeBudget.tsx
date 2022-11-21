@@ -9,8 +9,14 @@ import styles from '../style.less';
 // import {Line} from "@ant-design/charts";
 import type { typeBudgetDataType } from '../data.d';
 
-const BudgetRevenue = ({ typeBudgetData }: { typeBudgetData: typeBudgetDataType[] }) => (
-  <Card className={styles.offlineCard} bordered={false}>
+const BudgetRevenue = ({
+  loading,
+  typeBudgetData,
+}: {
+  loading: boolean;
+  typeBudgetData: typeBudgetDataType[];
+}) => (
+  <Card loading={loading} className={styles.offlineCard} bordered={false}>
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Column
@@ -32,7 +38,7 @@ const BudgetRevenue = ({ typeBudgetData }: { typeBudgetData: typeBudgetDataType[
         }}
         yAxis={{
           title: {
-            text: '电影预算（美元）',
+            text: '电影平均预算（美元）',
           },
         }}
         meta={{

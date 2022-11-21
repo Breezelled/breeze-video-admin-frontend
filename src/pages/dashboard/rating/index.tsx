@@ -14,16 +14,13 @@ import type moment from 'moment';
 // import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
-import { typeData } from './service';
+import { budgetRevenueData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
 // import styles from './style.less';
-import TypeBudget from '@/pages/dashboard/analysis/components/TypeBudget';
-import TypeRevenue from '@/pages/dashboard/analysis/components/TypeRevenue';
-import TypeDateNum from '@/pages/dashboard/analysis/components/TypeDateNum';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
@@ -40,7 +37,7 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { loading, data } = useRequest(typeData);
+  const { data } = useRequest(budgetRevenueData);
   // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
@@ -138,7 +135,6 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <TypeBudget loading={loading} typeBudgetData={data?.typeBudgetData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -150,7 +146,6 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <TypeRevenue loading={loading} typeRevenueData={data?.typeRevenueData || []} />
             </Suspense>
           </Col>
         </Row>
@@ -165,9 +160,7 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*/>*/}
         </Suspense>
 
-        <Suspense fallback={null}>
-          <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
-        </Suspense>
+        <Suspense fallback={null}></Suspense>
       </>
     </GridContent>
   );

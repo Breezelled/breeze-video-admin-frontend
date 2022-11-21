@@ -47,12 +47,6 @@ export type typeRevenueDataType = {
   type: string;
 };
 
-export type typeDateNumDataType = {
-  count: number;
-  release_date: string;
-  type: string;
-};
-
 export interface AnalysisData {
   visitData: DataItem[];
   visitData2: DataItem[];
@@ -67,5 +61,4 @@ export interface AnalysisData {
   budgetRevenueData: budgetRevenueDataType[];
   typeBudgetData: typeBudgetDataType[];
   typeRevenueData: typeRevenueDataType[];
-  typeDateNumData: typeDateNumDataType[];
 }

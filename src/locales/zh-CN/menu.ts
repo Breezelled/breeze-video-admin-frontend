@@ -8,7 +8,7 @@ export default {
   'menu.register': '注册',
   'menu.register-result': '注册结果',
   'menu.dashboard': '主页',
-  'menu.dashboard.analysis': '预算票房分析',
+  'menu.dashboard.analysis': '电影类型分析',
   'menu.dashboard.monitor': '监控页',
   'menu.dashboard.workplace': '工作台',
   'menu.exception.403': '403',
