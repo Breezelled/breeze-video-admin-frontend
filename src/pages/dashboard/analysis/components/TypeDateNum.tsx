@@ -16,8 +16,12 @@ const TypeDateNum = ({
   loading: boolean;
   typeDateNumData: typeDateNumDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
-    {/*{offlineData.map((shop) => (*/}
+  <Card
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+    style={{ marginTop: '32px' }}
+  >
     <div style={{ padding: '0 24px' }}>
       <Line
         autoFit
@@ -58,9 +62,9 @@ const TypeDateNum = ({
             duration: 3000,
           },
         }}
-        // legend={{
-        //   position: 'top-center',
-        // }}
+        legend={{
+          position: 'top',
+        }}
       />
     </div>
     {/*))}*/}

@@ -24,6 +24,8 @@ import type { AnalysisData } from './data.d';
 import TypeBudget from '@/pages/dashboard/analysis/components/TypeBudget';
 import TypeRevenue from '@/pages/dashboard/analysis/components/TypeRevenue';
 import TypeDateNum from '@/pages/dashboard/analysis/components/TypeDateNum';
+import TypeWordCloud from '@/pages/dashboard/analysis/components/TypeWordCloud';
+import TypePie from '@/pages/dashboard/analysis/components/TypePie';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
 
@@ -44,7 +46,7 @@ const Analysis: FC<AnalysisProps> = () => {
   // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
-  console.log(data?.budgetRevenueData || []);
+  console.log(data?.typeCountData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -168,6 +170,24 @@ const Analysis: FC<AnalysisProps> = () => {
         <Suspense fallback={null}>
           <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
         </Suspense>
+
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <TypePie loading={loading} typeCountData={data?.typeCountData || []} />
+            </Suspense>
+          </Col>
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <TypeWordCloud loading={loading} typeCountData={data?.typeCountData || []} />
+            </Suspense>
+          </Col>
+        </Row>
       </>
     </GridContent>
   );
