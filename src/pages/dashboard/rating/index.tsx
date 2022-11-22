@@ -14,12 +14,14 @@ import type moment from 'moment';
 // import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
-import { budgetRevenueData } from './service';
+import { ratingData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
+import RatingRevenue from '@/pages/dashboard/rating/components/RatingRevenue';
+import RatingCompanyDate from '@/pages/dashboard/rating/components/RatingCompanyDate';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -37,11 +39,11 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { data } = useRequest(budgetRevenueData);
+  const { loading, data } = useRequest(ratingData);
   // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
-  console.log(data?.budgetRevenueData || []);
+  console.log(data?.ratingRevenueData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -135,6 +137,10 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
+              <RatingCompanyDate
+                loading={loading}
+                ratingCompanyDateData={data?.ratingCompanyDateData || []}
+              />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -159,7 +165,7 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  handleTabChange={handleTabChange}*/}
           {/*/>*/}
         </Suspense>
-
+        <RatingRevenue loading={loading} ratingRevenueData={data?.ratingRevenueData || []} />
         <Suspense fallback={null}></Suspense>
       </>
     </GridContent>

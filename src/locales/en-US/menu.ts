@@ -9,6 +9,7 @@ export default {
   'menu.register-result': 'Register Result',
   'menu.dashboard': 'Home',
   'menu.dashboard.analysis': 'Analysis',
+  'menu.dashboard.rating': 'Rating',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',
   'menu.exception.403': '403',

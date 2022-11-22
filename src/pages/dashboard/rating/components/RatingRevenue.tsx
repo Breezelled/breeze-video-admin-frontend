@@ -7,14 +7,14 @@ import { Card } from 'antd';
 import styles from '../style.less';
 // import {OfflineDataType} from "../data.d";
 // import {Line} from "@ant-design/charts";
-import type { budgetRevenueDataType } from '../data.d';
+import type { ratingRevenueDataType } from '../data.d';
 
-const BudgetRevenue = ({
+const RatingRevenue = ({
   loading,
-  budgetRevenueData,
+  ratingRevenueData,
 }: {
   loading: boolean;
-  budgetRevenueData: budgetRevenueDataType[];
+  ratingRevenueData: ratingRevenueDataType[];
 }) => (
   <Card
     loading={loading}
@@ -27,9 +27,9 @@ const BudgetRevenue = ({
       <Scatter
         autoFit
         // height={400}
-        data={budgetRevenueData}
+        data={ratingRevenueData}
         // responsive
-        xField="budget"
+        xField="rating"
         yField="revenue"
         // seriesField="type"
         regressionLine={{
@@ -37,7 +37,7 @@ const BudgetRevenue = ({
         }}
         xAxis={{
           title: {
-            text: '电影预算（美元）',
+            text: '电影评分（10分满分）',
           },
         }}
         yAxis={{
@@ -46,8 +46,8 @@ const BudgetRevenue = ({
           },
         }}
         meta={{
-          budget: {
-            alias: '预算',
+          rating: {
+            alias: '评分',
           },
           revenue: {
             alias: '票房',
@@ -63,5 +63,5 @@ const BudgetRevenue = ({
   </Card>
 );
 
-export default BudgetRevenue;
+export default RatingRevenue;
 // ReactDOM.render(<BudgetRevenue />, document.getElementById('container'));

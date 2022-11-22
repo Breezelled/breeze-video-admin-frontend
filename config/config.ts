@@ -81,6 +81,12 @@ export default defineConfig({
           component: './dashboard/analysis',
         },
         {
+          name: 'rating',
+          icon: 'smile',
+          path: '/dashboard/rating',
+          component: './dashboard/rating',
+        },
+        {
           name: 'monitor',
           icon: 'smile',
           path: '/dashboard/monitor',
