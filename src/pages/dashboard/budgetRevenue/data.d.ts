@@ -48,6 +48,11 @@ export type ratingCountryNumDataType = {
   rating: number;
 };
 
+export type budgetRevenueDataType = {
+  budget: number;
+  revenue: number;
+};
+
 export interface AnalysisData {
   visitData: DataItem[];
   visitData2: DataItem[];
@@ -59,7 +64,5 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
-  ratingRevenueData: ratingRevenueDataType[];
-  ratingCompanyDateData: ratingCompanyDateDataType[];
-  ratingCountryNumData: ratingCountryNumDataType[];
+  budgetRevenueData: budgetRevenueDataType[];
 }

@@ -87,17 +87,23 @@ export default defineConfig({
           component: './dashboard/rating',
         },
         {
-          name: 'monitor',
+          name: 'budgetRevenue',
           icon: 'smile',
-          path: '/dashboard/monitor',
-          component: './dashboard/monitor',
+          path: '/dashboard/budgetRevenue',
+          component: './dashboard/budgetRevenue',
         },
-        {
-          name: 'workplace',
-          icon: 'smile',
-          path: '/dashboard/workplace',
-          component: './dashboard/workplace',
-        },
+        // {
+        //   name: 'monitor',
+        //   icon: 'smile',
+        //   path: '/dashboard/monitor',
+        //   component: './dashboard/monitor',
+        // },
+        // {
+        //   name: 'workplace',
+        //   icon: 'smile',
+        //   path: '/dashboard/workplace',
+        //   component: './dashboard/workplace',
+        // },
       ],
     },
     // {

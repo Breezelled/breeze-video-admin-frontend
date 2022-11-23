@@ -10,6 +10,7 @@ export default {
   'menu.dashboard': 'Home',
   'menu.dashboard.analysis': 'Analysis',
   'menu.dashboard.rating': 'Rating',
+  'menu.dashboard.budgetRevenue': 'BudgetRevenue',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',
   'menu.exception.403': '403',

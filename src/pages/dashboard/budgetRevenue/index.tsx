@@ -14,15 +14,13 @@ import type moment from 'moment';
 // import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
-import { ratingData } from './service';
+import { budgetRevenueData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
-import RatingRevenue from '@/pages/dashboard/rating/components/RatingRevenue';
-import RatingCompanyDate from '@/pages/dashboard/rating/components/RatingCompanyDate';
-import RatingCountryNum from '@/pages/dashboard/rating/components/RatingCountryNum';
+import BudgetRevenue from '@/pages/dashboard/budgetRevenue/components/BudgetRevenue';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -40,11 +38,11 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { loading, data } = useRequest(ratingData);
+  const { loading, data } = useRequest(budgetRevenueData);
   // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
-  console.log(data?.ratingRevenueData || []);
+  console.log(data?.budgetRevenueData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -138,10 +136,6 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <RatingCompanyDate
-                loading={loading}
-                ratingCompanyDateData={data?.ratingCompanyDateData || []}
-              />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -153,10 +147,6 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <RatingCountryNum
-                loading={loading}
-                ratingCountryNumData={data?.ratingCountryNumData || []}
-              />
             </Suspense>
           </Col>
         </Row>
@@ -170,7 +160,7 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  handleTabChange={handleTabChange}*/}
           {/*/>*/}
         </Suspense>
-        <RatingRevenue loading={loading} ratingRevenueData={data?.ratingRevenueData || []} />
+        <BudgetRevenue loading={loading} budgetRevenueData={data?.budgetRevenueData || []} />
         <Suspense fallback={null}></Suspense>
       </>
     </GridContent>

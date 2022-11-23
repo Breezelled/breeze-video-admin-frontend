@@ -4,10 +4,10 @@
 import { Scatter } from '@ant-design/plots';
 // import type { DataItem } from '../data.d';
 import { Card } from 'antd';
-import styles from '../style.less';
+import styles from '../../analysis/style.less';
 // import {OfflineDataType} from "../data.d";
 // import {Line} from "@ant-design/charts";
-import type { budgetRevenueDataType } from '../data.d';
+import type { budgetRevenueDataType } from '../../analysis/data';
 
 const BudgetRevenue = ({
   loading,

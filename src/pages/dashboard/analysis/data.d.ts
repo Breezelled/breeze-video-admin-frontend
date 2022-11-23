@@ -32,11 +32,6 @@ export type RadarData = {
   value: number;
 };
 
-export type budgetRevenueDataType = {
-  budget: number;
-  revenue: number;
-};
-
 export type typeBudgetDataType = {
   budget: number;
   type: string;
