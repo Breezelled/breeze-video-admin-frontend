@@ -21,6 +21,8 @@ import PageLoading from './components/PageLoading';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
 import BudgetRevenue from '@/pages/dashboard/budgetRevenue/components/BudgetRevenue';
+import Budget from '@/pages/dashboard/budgetRevenue/components/Budget';
+import Revenue from '@/pages/dashboard/budgetRevenue/components/Revenue';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -136,6 +138,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
+              <Budget loading={loading} budgetData={data?.budgetData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -147,6 +150,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
+              <Revenue loading={loading} revenueData={data?.revenueData || []} />
             </Suspense>
           </Col>
         </Row>

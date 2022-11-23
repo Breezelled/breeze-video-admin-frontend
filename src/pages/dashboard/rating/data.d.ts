@@ -44,6 +44,12 @@ export type ratingCompanyDateDataType = {
 
 export type ratingCountryNumDataType = {
   country: string;
+  value: number;
+  rating: number;
+};
+
+export type ratingDirectorNumDataType = {
+  director: string;
   count: number;
   rating: number;
 };
@@ -62,4 +68,5 @@ export interface AnalysisData {
   ratingRevenueData: ratingRevenueDataType[];
   ratingCompanyDateData: ratingCompanyDateDataType[];
   ratingCountryNumData: ratingCountryNumDataType[];
+  ratingDirectorNumData: ratingDirectorNumDataType[];
 }

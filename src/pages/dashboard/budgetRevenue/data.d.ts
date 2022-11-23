@@ -53,6 +53,16 @@ export type budgetRevenueDataType = {
   revenue: number;
 };
 
+export type budgetDataType = {
+  budget: number;
+  release_date: string;
+};
+
+export type revenueDataType = {
+  revenue: number;
+  release_date: string;
+};
+
 export interface AnalysisData {
   visitData: DataItem[];
   visitData2: DataItem[];
@@ -65,4 +75,6 @@ export interface AnalysisData {
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
   budgetRevenueData: budgetRevenueDataType[];
+  budgetData: budgetDataType[];
+  revenueData: revenueDataType[];
 }

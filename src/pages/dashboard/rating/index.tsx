@@ -23,6 +23,7 @@ import type { AnalysisData } from './data.d';
 import RatingRevenue from '@/pages/dashboard/rating/components/RatingRevenue';
 import RatingCompanyDate from '@/pages/dashboard/rating/components/RatingCompanyDate';
 import RatingCountryNum from '@/pages/dashboard/rating/components/RatingCountryNum';
+import RatingDirectorNum from '@/pages/dashboard/rating/components/RatingDirectorNum';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -122,6 +123,10 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  loading={loading}*/}
           {/*  selectDate={selectDate}*/}
           {/*/>*/}
+          <RatingCompanyDate
+            loading={loading}
+            ratingCompanyDateData={data?.ratingCompanyDateData || []}
+          />
         </Suspense>
 
         <Row
@@ -138,9 +143,9 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <RatingCompanyDate
+              <RatingCountryNum
                 loading={loading}
-                ratingCompanyDateData={data?.ratingCompanyDateData || []}
+                ratingCountryNumData={data?.ratingCountryNumData || []}
               />
             </Suspense>
           </Col>
@@ -153,9 +158,9 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <RatingCountryNum
+              <RatingDirectorNum
                 loading={loading}
-                ratingCountryNumData={data?.ratingCountryNumData || []}
+                ratingDirectorNumData={data?.ratingDirectorNumData || []}
               />
             </Suspense>
           </Col>

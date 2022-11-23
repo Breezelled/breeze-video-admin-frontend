@@ -37,7 +37,7 @@ const TypeDateNum = ({
         }}
         xAxis={{
           title: {
-            text: '电影年份',
+            text: '上映年份',
           },
         }}
         yAxis={{
