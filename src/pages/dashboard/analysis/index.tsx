@@ -1,23 +1,15 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Col, Row, Card } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 // import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
 import type moment from 'moment';
-// import IntroduceRow from './components/IntroduceRow';
-// import SalesCard from './components/SalesCard';
-// import TopSearch from './components/TopSearch';
-// import ProportionSales from './components/ProportionSales';
-// import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
 import { typeData } from './service';
-// import { fakeChartData } from './service';
-import PageLoading from './components/PageLoading';
-// import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
 // import styles from './style.less';
@@ -111,19 +103,15 @@ const Analysis: FC<AnalysisProps> = () => {
   return (
     <GridContent>
       <>
-        <Suspense fallback={<PageLoading />}>
-          {/*<IntroduceRow loading={loading} visitData={data?.visitData || []} />*/}
-        </Suspense>
-
         <Suspense fallback={null}>
-          {/*<SalesCard*/}
-          {/*  rangePickerValue={rangePickerValue}*/}
-          {/*  salesData={data?.salesData || []}*/}
-          {/*  isActive={isActive}*/}
-          {/*  handleRangePickerChange={handleRangePickerChange}*/}
-          {/*  loading={loading}*/}
-          {/*  selectDate={selectDate}*/}
-          {/*/>*/}
+          <Card
+            title="不同类型电影的在各年份的上映数量"
+            loading={loading}
+            bordered={false}
+            bodyStyle={{ overflow: 'hidden' }}
+          >
+            <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
+          </Card>
         </Suspense>
 
         <Row
@@ -140,7 +128,14 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <TypeBudget loading={loading} typeBudgetData={data?.typeBudgetData || []} />
+              <Card
+                title="不同类型电影的平均预算"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <TypeBudget loading={loading} typeBudgetData={data?.typeBudgetData || []} />
+              </Card>
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -152,7 +147,14 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <TypeRevenue loading={loading} typeRevenueData={data?.typeRevenueData || []} />
+              <Card
+                title="不同类型电影的平均票房"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <TypeRevenue loading={loading} typeRevenueData={data?.typeRevenueData || []} />
+              </Card>
             </Suspense>
           </Col>
         </Row>
@@ -167,24 +169,34 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*/>*/}
         </Suspense>
 
-        <Suspense fallback={null}>
-          <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
-        </Suspense>
-
         <Row
           gutter={24}
           style={{
-            marginTop: 24,
+            marginTop: '12px',
           }}
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <TypePie loading={loading} typeCountData={data?.typeCountData || []} />
+              <Card
+                title="不同类型电影的数量占比"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <TypePie loading={loading} typeCountData={data?.typeCountData || []} />
+              </Card>
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <TypeWordCloud loading={loading} typeCountData={data?.typeCountData || []} />
+              <Card
+                title="不同类型电影词云"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <TypeWordCloud loading={loading} typeCountData={data?.typeCountData || []} />
+              </Card>
             </Suspense>
           </Col>
         </Row>

@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Col, Row, Card } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 // import type { RadioChangeEvent } from 'antd/es/radio';
@@ -123,10 +123,17 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  loading={loading}*/}
           {/*  selectDate={selectDate}*/}
           {/*/>*/}
-          <RatingCompanyDate
+          <Card
+            title="六大电影公司评分区间"
             loading={loading}
-            ratingCompanyDateData={data?.ratingCompanyDateData || []}
-          />
+            bordered={false}
+            bodyStyle={{ overflow: 'hidden' }}
+          >
+            <RatingCompanyDate
+              loading={loading}
+              ratingCompanyDateData={data?.ratingCompanyDateData || []}
+            />
+          </Card>
         </Suspense>
 
         <Row
@@ -143,10 +150,17 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <RatingCountryNum
+              <Card
+                title="国家矩形树图"
                 loading={loading}
-                ratingCountryNumData={data?.ratingCountryNumData || []}
-              />
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <RatingCountryNum
+                  loading={loading}
+                  ratingCountryNumData={data?.ratingCountryNumData || []}
+                />
+              </Card>
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -158,10 +172,17 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <RatingDirectorNum
+              <Card
+                title="导演矩形树图"
                 loading={loading}
-                ratingDirectorNumData={data?.ratingDirectorNumData || []}
-              />
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <RatingDirectorNum
+                  loading={loading}
+                  ratingDirectorNumData={data?.ratingDirectorNumData || []}
+                />
+              </Card>
             </Suspense>
           </Col>
         </Row>
@@ -174,8 +195,17 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  offlineChartData={data?.offlineChartData || []}*/}
           {/*  handleTabChange={handleTabChange}*/}
           {/*/>*/}
+          <Card
+            title="评分与票房散点图"
+            loading={loading}
+            bordered={false}
+            bodyStyle={{ overflow: 'hidden' }}
+            style={{ marginTop: '12px' }}
+          >
+            <RatingRevenue loading={loading} ratingRevenueData={data?.ratingRevenueData || []} />
+          </Card>
         </Suspense>
-        <RatingRevenue loading={loading} ratingRevenueData={data?.ratingRevenueData || []} />
+
         <Suspense fallback={null}></Suspense>
       </>
     </GridContent>

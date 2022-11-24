@@ -92,6 +92,12 @@ export default defineConfig({
           path: '/dashboard/budgetRevenue',
           component: './dashboard/budgetRevenue',
         },
+        {
+          name: 'other',
+          icon: 'smile',
+          path: '/dashboard/other',
+          component: './dashboard/other',
+        },
         // {
         //   name: 'monitor',
         //   icon: 'smile',

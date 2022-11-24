@@ -32,40 +32,25 @@ export type RadarData = {
   value: number;
 };
 
-export type ratingRevenueDataType = {
-  rating: number;
-  revenue: number;
-};
-
-export type ratingCompanyDateDataType = {
-  company: string;
-  rating: [];
-};
-
-export type ratingCountryNumDataType = {
-  country: string;
+export type runtimeDataType = {
   count: number;
-  rating: number;
+  type: string;
 };
 
-export type budgetRevenueDataType = {
-  budget: number;
-  revenue: number;
+export type reviewWordFrequencyDataType = {
+  word: string;
+  frequency: number;
 };
 
-export type budgetDataType = {
-  budget: number;
-  release_date: string;
+export type companyMovieNumDataType = {
+  company: string;
+  count: number;
 };
 
-export type revenueDataType = {
-  revenue: number;
-  release_date: string;
-};
-
-export type companyBudgetRevenueDataType = {
-  revenue: number;
-  release_date: string;
+export type companyTypeProportionDataType = {
+  company: string;
+  count: number;
+  type: string;
 };
 
 export interface AnalysisData {
@@ -79,8 +64,8 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
-  budgetRevenueData: budgetRevenueDataType[];
-  budgetData: budgetDataType[];
-  revenueData: revenueDataType[];
-  companyBudgetRevenueData: companyBudgetRevenueDataType[];
+  runtimeData: runtimeDataType[];
+  reviewWordFrequencyData: reviewWordFrequencyDataType[];
+  companyMovieNumData: companyMovieNumDataType[];
+  companyTypeProportionData: companyTypeProportionDataType[];
 }

@@ -4,26 +4,20 @@ import { Suspense, useState } from 'react';
 import { Col, Row, Card } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
-// import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
 import type moment from 'moment';
-// import IntroduceRow from './components/IntroduceRow';
-// import SalesCard from './components/SalesCard';
-// import TopSearch from './components/TopSearch';
-// import ProportionSales from './components/ProportionSales';
-// import OfflineData from './components/OfflineData';
 import { useRequest } from 'umi';
 
-import { budgetRevenueData } from './service';
+import { otherData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
-import BudgetRevenue from '@/pages/dashboard/budgetRevenue/components/BudgetRevenue';
-import Budget from '@/pages/dashboard/budgetRevenue/components/Budget';
-import Revenue from '@/pages/dashboard/budgetRevenue/components/Revenue';
-import CompanyBudgetRevenue from '@/pages/dashboard/budgetRevenue/components/CompanyBudgetRevenue';
+import Runtime from '@/pages/dashboard/other/components/Runtime';
+import ReviewWordCloud from '@/pages/dashboard/other/components/ReviewWordCloud';
+import CompanyMovieNum from '@/pages/dashboard/other/components/CompanyMovieNum';
+import CompanyTypeProportion from '@/pages/dashboard/other/components/CompanyTypeProportion';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -41,11 +35,11 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { loading, data } = useRequest(budgetRevenueData);
+  const { loading, data } = useRequest(otherData);
   // const { data } = useRequest(budgetRevenueData);
   // console.log(scatterData)
   console.log(data);
-  console.log(data?.budgetRevenueData || []);
+  console.log(data?.runtimeData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -123,17 +117,6 @@ const Analysis: FC<AnalysisProps> = () => {
           {/*  loading={loading}*/}
           {/*  selectDate={selectDate}*/}
           {/*/>*/}
-          <Card
-            title="六大电影公司票房与预算"
-            loading={loading}
-            bordered={false}
-            bodyStyle={{ overflow: 'hidden' }}
-          >
-            <CompanyBudgetRevenue
-              loading={loading}
-              companyBudgetRevenueData={data?.companyBudgetRevenueData || []}
-            />
-          </Card>
         </Suspense>
 
         <Row
@@ -144,54 +127,81 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              {/*<TopSearch*/}
-              {/*  loading={loading}*/}
-              {/*  visitData2={data?.visitData2 || []}*/}
-              {/*  searchData={data?.searchData || []}*/}
-              {/*  dropdownGroup={dropdownGroup}*/}
-              {/*/>*/}
               <Card
-                title="预算趋势"
+                title="六大电影公司类型偏好"
                 loading={loading}
                 bordered={false}
                 bodyStyle={{ overflow: 'hidden' }}
               >
-                <Budget loading={loading} budgetData={data?.budgetData || []} />
+                <CompanyTypeProportion
+                  loading={loading}
+                  companyTypeProportionData={data?.companyTypeProportionData || []}
+                />
               </Card>
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              {/*<ProportionSales*/}
-              {/*  dropdownGroup={dropdownGroup}*/}
-              {/*  salesType={salesType}*/}
-              {/*  loading={loading}*/}
-              {/*  salesPieData={salesPieData || []}*/}
-              {/*  handleChangeSalesType={handleChangeSalesType}*/}
-              {/*/>*/}
               <Card
-                title="票房趋势"
+                title="六大电影公司上映电影总数"
                 loading={loading}
                 bordered={false}
                 bodyStyle={{ overflow: 'hidden' }}
               >
-                <Revenue loading={loading} revenueData={data?.revenueData || []} />
+                <CompanyMovieNum
+                  loading={loading}
+                  companyMovieNumData={data?.companyMovieNumData || []}
+                />
+              </Card>
+            </Suspense>
+          </Col>
+        </Row>
+
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <Card
+                title="时长占比统计"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <Runtime loading={loading} runtimeData={data?.runtimeData || []} />
+              </Card>
+            </Suspense>
+          </Col>
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <Card
+                title="评论高频词云"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <ReviewWordCloud
+                  loading={loading}
+                  reviewWordFrequencyData={data?.reviewWordFrequencyData || []}
+                />
               </Card>
             </Suspense>
           </Col>
         </Row>
 
         <Suspense fallback={null}>
-          <Card
-            title="预算与票房散点图"
-            loading={loading}
-            bordered={false}
-            bodyStyle={{ overflow: 'hidden' }}
-            style={{ marginTop: '12px' }}
-          >
-            <BudgetRevenue loading={loading} budgetRevenueData={data?.budgetRevenueData || []} />
-          </Card>
+          {/*<OfflineData*/}
+          {/*  activeKey={activeKey}*/}
+          {/*  loading={loading}*/}
+          {/*  offlineData={data?.offlineData || []}*/}
+          {/*  offlineChartData={data?.offlineChartData || []}*/}
+          {/*  handleTabChange={handleTabChange}*/}
+          {/*/>*/}
         </Suspense>
+        <Suspense fallback={null}></Suspense>
       </>
     </GridContent>
   );
