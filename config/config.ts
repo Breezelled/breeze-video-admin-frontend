@@ -112,6 +112,23 @@ export default defineConfig({
         // },
       ],
     },
+    {
+      path: '/prediction',
+      icon: 'dashboard',
+      name: 'prediction',
+      routes: [
+        {
+          path: '/prediction',
+          redirect: '/prediction/revenuePrediction',
+        },
+        {
+          name: 'revenuePrediction',
+          icon: 'smile',
+          path: '/prediction/revenuePrediction',
+          component: './prediction/revenuePrediction',
+        },
+      ],
+    },
     // {
     //   path: '/form',
     //   icon: 'form',

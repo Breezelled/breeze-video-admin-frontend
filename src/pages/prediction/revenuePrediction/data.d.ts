@@ -32,35 +32,15 @@ export type RadarData = {
   value: number;
 };
 
-export type runtimeDataType = {
-  count: number;
-  type: string;
+export type revenuePredictionModelColumnDataType = {
+  model: string;
+  score: number;
 };
 
-export type reviewWordFrequencyDataType = {
-  word: string;
-  frequency: number;
-};
-
-export type companyMovieNumDataType = {
-  company: string;
-  count: number;
-};
-
-export type companyTypeProportionDataType = {
-  company: string;
-  count: number;
-  type: string;
-};
-
-export type starNumDataType = {
-  star: string;
-  count: number;
-};
-
-export type reviewerNumDataType = {
-  author: string;
-  count: number;
+export type revenuePredictionModelLineDataType = {
+  model: string;
+  x: number;
+  y: number;
 };
 
 export interface AnalysisData {
@@ -74,10 +54,6 @@ export interface AnalysisData {
   salesTypeDataOnline: DataItem[];
   salesTypeDataOffline: DataItem[];
   radarData: RadarData[];
-  runtimeData: runtimeDataType[];
-  reviewWordFrequencyData: reviewWordFrequencyDataType[];
-  companyMovieNumData: companyMovieNumDataType[];
-  companyTypeProportionData: companyTypeProportionDataType[];
-  starNumData: starNumDataType[];
-  reviewerNumData: reviewerNumDataType[];
+  revenuePredictionModelColumnData: revenuePredictionModelColumnDataType[];
+  revenuePredictionModelLineData: revenuePredictionModelLineDataType[];
 }

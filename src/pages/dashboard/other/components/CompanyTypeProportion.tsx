@@ -77,6 +77,7 @@ const CompanyTypeProportion = ({
             fill: '#fff',
           },
         }}
+        tooltip={false}
         interactions={[
           {
             type: 'element-highlight-by-color',

@@ -18,6 +18,8 @@ import Runtime from '@/pages/dashboard/other/components/Runtime';
 import ReviewWordCloud from '@/pages/dashboard/other/components/ReviewWordCloud';
 import CompanyMovieNum from '@/pages/dashboard/other/components/CompanyMovieNum';
 import CompanyTypeProportion from '@/pages/dashboard/other/components/CompanyTypeProportion';
+import StarNum from '@/pages/dashboard/other/components/StarNum';
+import ReviewerNum from '@/pages/dashboard/other/components/ReviewerNum';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -152,6 +154,38 @@ const Analysis: FC<AnalysisProps> = () => {
                   loading={loading}
                   companyMovieNumData={data?.companyMovieNumData || []}
                 />
+              </Card>
+            </Suspense>
+          </Col>
+        </Row>
+
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <Card
+                title="参演电影数最高的部分影星"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <StarNum loading={loading} starNumData={data?.starNumData || []} />
+              </Card>
+            </Suspense>
+          </Col>
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <Card
+                title="评论电影数最高的部分评论者"
+                loading={loading}
+                bordered={false}
+                bodyStyle={{ overflow: 'hidden' }}
+              >
+                <ReviewerNum loading={loading} reviewerNumData={data?.reviewerNumData || []} />
               </Card>
             </Suspense>
           </Col>
