@@ -17,6 +17,7 @@ const RatingCompanyDate = ({
   ratingCompanyDateData: ratingCompanyDateDataType[];
 }) => (
   <Card
+    title="六大电影公司评分区间"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

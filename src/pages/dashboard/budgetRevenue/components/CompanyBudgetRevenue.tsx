@@ -17,6 +17,7 @@ const CompanyBudgetRevenue = ({
   companyBudgetRevenueData: companyBudgetRevenueDataType[];
 }) => (
   <Card
+    title="六大电影公司票房与预算"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

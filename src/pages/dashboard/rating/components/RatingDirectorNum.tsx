@@ -17,6 +17,7 @@ const RatingDirectorNum = ({
   ratingDirectorNumData: ratingDirectorNumDataType[];
 }) => (
   <Card
+    title="导演矩形树图"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

@@ -16,7 +16,12 @@ const ReviewerNum = ({
   loading: boolean;
   reviewerNumData: reviewerNumDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
+  <Card
+    title="评论电影数最高的部分评论者"
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+  >
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Column

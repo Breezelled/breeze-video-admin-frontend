@@ -17,10 +17,11 @@ const TypeDateNum = ({
   typeDateNumData: typeDateNumDataType[];
 }) => (
   <Card
+    title={'不同类型电影的在各年份的上映数量'}
     loading={loading}
     className={styles.offlineCard}
     bordered={false}
-    style={{ marginTop: '32px' }}
+    style={{ marginTop: '0px' }}
   >
     <div style={{ padding: '0 24px' }}>
       <Line

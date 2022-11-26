@@ -17,10 +17,10 @@ const RevenuePredictionModelLine = ({
   revenuePredictionModelLineData: revenuePredictionModelLineDataType[];
 }) => (
   <Card
+    title="不同模型和实际数值的票房折线图"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}
-    style={{ marginTop: '32px' }}
   >
     <div style={{ padding: '0 24px' }}>
       <Line

@@ -16,7 +16,12 @@ const BudgetRevenue = ({
   loading: boolean;
   typeBudgetData: typeBudgetDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
+  <Card
+    title={'不同类型电影的平均预算'}
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+  >
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Column

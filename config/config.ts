@@ -129,6 +129,29 @@ export default defineConfig({
         },
       ],
     },
+    {
+      path: '/data',
+      icon: 'table',
+      name: 'data',
+      routes: [
+        {
+          path: '/data',
+          redirect: '/data/displayData',
+        },
+        {
+          name: 'displayData',
+          icon: 'smile',
+          path: '/data/displayData',
+          component: './data/displayData',
+        },
+        {
+          name: 'reviewData',
+          icon: 'smile',
+          path: '/data/reviewData',
+          component: './data/reviewData',
+        },
+      ],
+    },
     // {
     //   path: '/form',
     //   icon: 'form',

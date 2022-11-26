@@ -17,6 +17,7 @@ const Revenue = ({
   revenueData: revenueDataType[];
 }) => (
   <Card
+    title="票房趋势"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

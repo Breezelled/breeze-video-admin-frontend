@@ -1,29 +1,19 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
-// import type { RadioChangeEvent } from 'antd/es/radio';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
 import type moment from 'moment';
-// import IntroduceRow from './components/IntroduceRow';
-// import SalesCard from './components/SalesCard';
-// import TopSearch from './components/TopSearch';
-// import ProportionSales from './components/ProportionSales';
-// import OfflineData from './components/OfflineData';
-import { useRequest } from 'umi';
+// import { useRequest } from 'umi';
 
-import { budgetRevenueData } from './service';
+// import { displayData } from './service';
 // import { fakeChartData } from './service';
 import PageLoading from './components/PageLoading';
 // import type { TimeType } from './components/SalesCard';
 import { getTimeDistance } from './utils/utils';
 import type { AnalysisData } from './data.d';
-import BudgetRevenue from '@/pages/dashboard/budgetRevenue/components/BudgetRevenue';
-import Budget from '@/pages/dashboard/budgetRevenue/components/Budget';
-import Revenue from '@/pages/dashboard/budgetRevenue/components/Revenue';
-import CompanyBudgetRevenue from '@/pages/dashboard/budgetRevenue/components/CompanyBudgetRevenue';
+import DisplayData from '@/pages/data/displayData/components/DisplayData';
 // import styles from './style.less';
 
 type RangePickerValue = RangePickerProps<moment.Moment>['value'];
@@ -41,11 +31,10 @@ const Analysis: FC<AnalysisProps> = () => {
   const [] = useState<RangePickerValue>(getTimeDistance('year'));
 
   // const { scatterData } = useRequest(g2plotTest)
-  const { loading, data } = useRequest(budgetRevenueData);
-  // const { data } = useRequest(budgetRevenueData);
+  // const { loading, data } = useRequest(displayData);
   // console.log(scatterData)
-  console.log(data);
-  console.log(data?.budgetRevenueData || []);
+  // console.log(data?.displayData);
+  // console.log(data?.displayData || []);
   //
   // const selectDate = (type: TimeType) => {
   //   setRangePickerValue(getTimeDistance(type));
@@ -111,57 +100,7 @@ const Analysis: FC<AnalysisProps> = () => {
     <GridContent>
       <>
         <Suspense fallback={<PageLoading />}>
-          {/*<IntroduceRow loading={loading} visitData={data?.visitData || []} />*/}
-        </Suspense>
-
-        <Suspense fallback={null}>
-          {/*<SalesCard*/}
-          {/*  rangePickerValue={rangePickerValue}*/}
-          {/*  salesData={data?.salesData || []}*/}
-          {/*  isActive={isActive}*/}
-          {/*  handleRangePickerChange={handleRangePickerChange}*/}
-          {/*  loading={loading}*/}
-          {/*  selectDate={selectDate}*/}
-          {/*/>*/}
-          <CompanyBudgetRevenue
-            loading={loading}
-            companyBudgetRevenueData={data?.companyBudgetRevenueData || []}
-          />
-        </Suspense>
-
-        <Row
-          gutter={24}
-          style={{
-            marginTop: 24,
-          }}
-        >
-          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
-            <Suspense fallback={null}>
-              {/*<TopSearch*/}
-              {/*  loading={loading}*/}
-              {/*  visitData2={data?.visitData2 || []}*/}
-              {/*  searchData={data?.searchData || []}*/}
-              {/*  dropdownGroup={dropdownGroup}*/}
-              {/*/>*/}
-              <Budget loading={loading} budgetData={data?.budgetData || []} />
-            </Suspense>
-          </Col>
-          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
-            <Suspense fallback={null}>
-              {/*<ProportionSales*/}
-              {/*  dropdownGroup={dropdownGroup}*/}
-              {/*  salesType={salesType}*/}
-              {/*  loading={loading}*/}
-              {/*  salesPieData={salesPieData || []}*/}
-              {/*  handleChangeSalesType={handleChangeSalesType}*/}
-              {/*/>*/}
-              <Revenue loading={loading} revenueData={data?.revenueData || []} />
-            </Suspense>
-          </Col>
-        </Row>
-
-        <Suspense fallback={null}>
-          <BudgetRevenue loading={loading} budgetRevenueData={data?.budgetRevenueData || []} />
+          <DisplayData />
         </Suspense>
       </>
     </GridContent>

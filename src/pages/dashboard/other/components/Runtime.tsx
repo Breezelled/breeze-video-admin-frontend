@@ -17,6 +17,7 @@ const TypeWordCloud = ({
   runtimeData: runtimeDataType[];
 }) => (
   <Card
+    title="时长占比统计"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

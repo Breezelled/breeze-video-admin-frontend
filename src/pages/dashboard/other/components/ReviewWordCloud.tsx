@@ -17,6 +17,7 @@ const ReviewWordCloud = ({
   reviewWordFrequencyData: reviewWordFrequencyDataType[];
 }) => (
   <Card
+    title="评论高频词云"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

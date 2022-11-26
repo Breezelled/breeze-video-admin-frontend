@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Col, Row, Card } from 'antd';
+import { Col, Row } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 // import type { RadioChangeEvent } from 'antd/es/radio';
@@ -104,14 +104,7 @@ const Analysis: FC<AnalysisProps> = () => {
     <GridContent>
       <>
         <Suspense fallback={null}>
-          <Card
-            title="不同类型电影的在各年份的上映数量"
-            loading={loading}
-            bordered={false}
-            bodyStyle={{ overflow: 'hidden' }}
-          >
-            <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
-          </Card>
+          <TypeDateNum loading={loading} typeDateNumData={data?.typeDateNumData || []} />
         </Suspense>
 
         <Row
@@ -128,14 +121,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  searchData={data?.searchData || []}*/}
               {/*  dropdownGroup={dropdownGroup}*/}
               {/*/>*/}
-              <Card
-                title="不同类型电影的平均预算"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <TypeBudget loading={loading} typeBudgetData={data?.typeBudgetData || []} />
-              </Card>
+              <TypeBudget loading={loading} typeBudgetData={data?.typeBudgetData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
@@ -147,14 +133,7 @@ const Analysis: FC<AnalysisProps> = () => {
               {/*  salesPieData={salesPieData || []}*/}
               {/*  handleChangeSalesType={handleChangeSalesType}*/}
               {/*/>*/}
-              <Card
-                title="不同类型电影的平均票房"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <TypeRevenue loading={loading} typeRevenueData={data?.typeRevenueData || []} />
-              </Card>
+              <TypeRevenue loading={loading} typeRevenueData={data?.typeRevenueData || []} />
             </Suspense>
           </Col>
         </Row>
@@ -177,26 +156,12 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="不同类型电影的数量占比"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <TypePie loading={loading} typeCountData={data?.typeCountData || []} />
-              </Card>
+              <TypePie loading={loading} typeCountData={data?.typeCountData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="不同类型电影词云"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <TypeWordCloud loading={loading} typeCountData={data?.typeCountData || []} />
-              </Card>
+              <TypeWordCloud loading={loading} typeCountData={data?.typeCountData || []} />
             </Suspense>
           </Col>
         </Row>

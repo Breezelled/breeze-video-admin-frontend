@@ -17,6 +17,7 @@ const BudgetRevenue = ({
   budgetRevenueData: budgetRevenueDataType[];
 }) => (
   <Card
+    title="预算与票房散点图"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

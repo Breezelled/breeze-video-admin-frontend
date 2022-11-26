@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Col, Row, Card } from 'antd';
+import { Col, Row } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
@@ -129,32 +129,18 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="六大电影公司类型偏好"
+              <CompanyTypeProportion
                 loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <CompanyTypeProportion
-                  loading={loading}
-                  companyTypeProportionData={data?.companyTypeProportionData || []}
-                />
-              </Card>
+                companyTypeProportionData={data?.companyTypeProportionData || []}
+              />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="六大电影公司上映电影总数"
+              <CompanyMovieNum
                 loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <CompanyMovieNum
-                  loading={loading}
-                  companyMovieNumData={data?.companyMovieNumData || []}
-                />
-              </Card>
+                companyMovieNumData={data?.companyMovieNumData || []}
+              />
             </Suspense>
           </Col>
         </Row>
@@ -167,26 +153,12 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="参演电影数最高的部分影星"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <StarNum loading={loading} starNumData={data?.starNumData || []} />
-              </Card>
+              <StarNum loading={loading} starNumData={data?.starNumData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="评论电影数最高的部分评论者"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <ReviewerNum loading={loading} reviewerNumData={data?.reviewerNumData || []} />
-              </Card>
+              <ReviewerNum loading={loading} reviewerNumData={data?.reviewerNumData || []} />
             </Suspense>
           </Col>
         </Row>
@@ -199,29 +171,15 @@ const Analysis: FC<AnalysisProps> = () => {
         >
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="时长占比统计"
-                loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <Runtime loading={loading} runtimeData={data?.runtimeData || []} />
-              </Card>
+              <Runtime loading={loading} runtimeData={data?.runtimeData || []} />
             </Suspense>
           </Col>
           <Col xl={12} lg={24} md={24} sm={24} xs={24}>
             <Suspense fallback={null}>
-              <Card
-                title="评论高频词云"
+              <ReviewWordCloud
                 loading={loading}
-                bordered={false}
-                bodyStyle={{ overflow: 'hidden' }}
-              >
-                <ReviewWordCloud
-                  loading={loading}
-                  reviewWordFrequencyData={data?.reviewWordFrequencyData || []}
-                />
-              </Card>
+                reviewWordFrequencyData={data?.reviewWordFrequencyData || []}
+              />
             </Suspense>
           </Col>
         </Row>

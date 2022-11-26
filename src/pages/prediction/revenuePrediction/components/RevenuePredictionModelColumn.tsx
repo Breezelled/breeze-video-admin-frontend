@@ -16,8 +16,13 @@ const RevenuePredictionModelColumn = ({
   loading: boolean;
   revenuePredictionModelColumnData: revenuePredictionModelColumnDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
-    {/*{offlineData.map((shop) => (*/}
+  <Card
+    title="不同模型预测票房评分"
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+    style={{ marginTop: '32px' }}
+  >
     <div style={{ padding: '0 24px' }}>
       <Column
         autoFit

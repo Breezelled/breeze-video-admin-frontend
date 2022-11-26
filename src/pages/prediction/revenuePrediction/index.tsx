@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { Suspense, useState } from 'react';
 // import { EllipsisOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
 // import { Dropdown, Menu } from 'antd';
 import { GridContent } from '@ant-design/pro-layout';
 // import type { RadioChangeEvent } from 'antd/es/radio';
@@ -113,50 +112,18 @@ const Analysis: FC<AnalysisProps> = () => {
         </Suspense>
 
         <Suspense fallback={null}>
-          {/*<SalesCard*/}
-          {/*  rangePickerValue={rangePickerValue}*/}
-          {/*  salesData={data?.salesData || []}*/}
-          {/*  isActive={isActive}*/}
-          {/*  handleRangePickerChange={handleRangePickerChange}*/}
-          {/*  loading={loading}*/}
-          {/*  selectDate={selectDate}*/}
-          {/*/>*/}
-          <Card
-            title="不同模型和实际数值的票房折线图"
+          <RevenuePredictionModelLine
             loading={loading}
-            bordered={false}
-            bodyStyle={{ overflow: 'hidden' }}
-          >
-            <RevenuePredictionModelLine
-              loading={loading}
-              revenuePredictionModelLineData={data?.revenuePredictionModelLineData || []}
-            />
-          </Card>
+            revenuePredictionModelLineData={data?.revenuePredictionModelLineData || []}
+          />
         </Suspense>
 
         <Suspense fallback={null}>
-          {/*<OfflineData*/}
-          {/*  activeKey={activeKey}*/}
-          {/*  loading={loading}*/}
-          {/*  offlineData={data?.offlineData || []}*/}
-          {/*  offlineChartData={data?.offlineChartData || []}*/}
-          {/*  handleTabChange={handleTabChange}*/}
-          {/*/>*/}
-          <Card
-            title="不同模型预测票房评分"
+          <RevenuePredictionModelColumn
             loading={loading}
-            bordered={false}
-            bodyStyle={{ overflow: 'hidden' }}
-            style={{ marginTop: '12px' }}
-          >
-            <RevenuePredictionModelColumn
-              loading={loading}
-              revenuePredictionModelColumnData={data?.revenuePredictionModelColumnData || []}
-            />
-          </Card>
+            revenuePredictionModelColumnData={data?.revenuePredictionModelColumnData || []}
+          />
         </Suspense>
-
-        <Suspense fallback={null}></Suspense>
       </>
     </GridContent>
   );

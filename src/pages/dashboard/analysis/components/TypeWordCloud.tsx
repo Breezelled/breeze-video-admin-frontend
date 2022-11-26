@@ -17,6 +17,7 @@ const TypeWordCloud = ({
   typeCountData: typeCountDataType[];
 }) => (
   <Card
+    title={'不同类型电影词云'}
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

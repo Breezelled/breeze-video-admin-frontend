@@ -16,7 +16,12 @@ const StarNum = ({
   loading: boolean;
   starNumData: starNumDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
+  <Card
+    title="参演电影数最高的部分影星"
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+  >
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Column

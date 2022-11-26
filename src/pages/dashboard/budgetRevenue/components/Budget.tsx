@@ -11,6 +11,7 @@ import type { budgetDataType } from '../data';
 
 const Budget = ({ loading, budgetData }: { loading: boolean; budgetData: budgetDataType[] }) => (
   <Card
+    title="预算趋势"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

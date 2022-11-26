@@ -17,6 +17,7 @@ const RatingCountryNum = ({
   ratingCountryNumData: ratingCountryNumDataType[];
 }) => (
   <Card
+    title="国家矩形树图"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

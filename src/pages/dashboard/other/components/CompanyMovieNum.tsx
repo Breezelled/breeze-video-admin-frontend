@@ -16,12 +16,15 @@ const CompanyMovieNum = ({
   loading: boolean;
   companyMovieNumData: companyMovieNumDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
-    {/*{offlineData.map((shop) => (*/}
+  <Card
+    title="六大电影公司上映电影总数"
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+  >
     <div style={{ padding: '0 24px' }}>
       <Column
         autoFit
-        // height={400}
         data={companyMovieNumData}
         // responsive
         xField="company"

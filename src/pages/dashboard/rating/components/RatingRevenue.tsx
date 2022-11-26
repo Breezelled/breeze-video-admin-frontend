@@ -17,6 +17,7 @@ const RatingRevenue = ({
   ratingRevenueData: ratingRevenueDataType[];
 }) => (
   <Card
+    title="评分与票房散点图"
     loading={loading}
     className={styles.offlineCard}
     bordered={false}

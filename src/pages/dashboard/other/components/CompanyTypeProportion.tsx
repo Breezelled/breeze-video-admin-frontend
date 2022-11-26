@@ -30,7 +30,12 @@ const CompanyTypeProportion = ({
   loading: boolean;
   companyTypeProportionData: companyTypeProportionDataType[];
 }) => (
-  <Card loading={loading} className={styles.offlineCard} bordered={false}>
+  <Card
+    title="六大电影公司类型偏好"
+    loading={loading}
+    className={styles.offlineCard}
+    bordered={false}
+  >
     {/*{offlineData.map((shop) => (*/}
     <div style={{ padding: '0 24px' }}>
       <Column
